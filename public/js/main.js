@@ -1,40 +1,31 @@
-// Burger menus
-document.addEventListener('DOMContentLoaded', function() {
-    // open
-    const burger = document.querySelectorAll('.navbar-burger');
-    const menu = document.querySelectorAll('.navbar-menu');
+// Burger menu toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const burgers = document.querySelectorAll('.navbar-burger');
+  const menus = document.querySelectorAll('.navbar-menu');
+  const backdrops = document.querySelectorAll('.navbar-backdrop');
 
-    if (burger.length && menu.length) {
-        for (var i = 0; i < burger.length; i++) {
-            burger[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
-    }
+  function closeMenu() {
+    menus.forEach(m => m.classList.add('hidden'));
+  }
 
-    // close
-    const close = document.querySelectorAll('.navbar-close');
-    const backdrop = document.querySelectorAll('.navbar-backdrop');
+  function toggleMenu() {
+    const isHidden = menus[0]?.classList.contains('hidden');
+    menus.forEach(m => m.classList.toggle('hidden', !isHidden));
+  }
 
-    if (close.length) {
-        for (var i = 0; i < close.length; i++) {
-            close[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
-    }
+  burgers.forEach(b => b.addEventListener('click', toggleMenu));
+  backdrops.forEach(b => b.addEventListener('click', closeMenu));
 
-    if (backdrop.length) {
-        for (var i = 0; i < backdrop.length; i++) {
-            backdrop[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
-    }
+  // Close mobile menu when a nav link is clicked
+  document.querySelectorAll('.navbar-menu a[href]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function () {
+      navbar.classList.toggle('nav-scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
 });
