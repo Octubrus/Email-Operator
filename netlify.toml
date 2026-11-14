@@ -1,3 +1,3 @@
+# Static site: no build step. public/index.html is the whole page.
 [build]
-  command = "npm run build"
   publish = "public"

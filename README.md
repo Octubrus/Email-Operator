@@ -1,37 +1,19 @@
-# The Shuffle Editor (https://shuffle.dev)
+# Email Operator website
 
-NOTE: npm commands overwrite the ./public directory.
+One static page: `public/index.html`, with inline CSS and a small inline script. No framework and no build step.
 
-## 1. Getting Started
+- `public/assets/` holds the images the page uses (portrait, logos, case study screenshots, video card stills, favicon, share image).
+- `public/videos/` holds the two client videos. They load only when a visitor clicks a video card.
+- `public/images/` holds the original files from the old site, kept so old links to them still work.
 
-Project's source files are placed in ./src/ directory. 
-* ./src/assets - default static files (eg. image placeholders). You should replace them with your own files.
-* ./src/tailwind/ - Tailwind config file used to build the theme. Variables used in Theme Customizer are located in tailwind.config.js file.
-
-All your pages (templates) are stored in separated .pug or .html files (depends on your export preferences)
-* ./src/pug/*.pug 
-* ./src/html/*.html 
-
-## 2. Installation
+## Run locally
 
 ```
-# Install dependencies
-npm install 
-
-# Run dev server with live preview (Browsersync)
-npm run watch
-
-# Or make a production build 
-npm run build
+python -m http.server 8080 --directory public
 ```
 
-## 3. Contact
+Then open http://localhost:8080. The form shows its error message locally, because nothing handles the POST.
 
-If you have found any bugs in the Tailwind Builder, have any questions, 
-comments or ideas for new features feel free to contact us:
+## Deploy
 
-support@shuffle.dev
-
-## 4. Credits & Special thanks
-
-We use placeholders from https://unsplash.com/
+Netlify publishes the `public` folder as it is (`netlify.toml`). The email check form uses Netlify Forms under the name `email-check`. Set up an email notification for it in the Netlify dashboard so submissions reach hello@augustinasv.com.
