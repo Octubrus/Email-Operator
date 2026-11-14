@@ -287,10 +287,10 @@
       .team-row .pic img { width: 150px; height: 150px; }
       .journey { padding: 24px 24px 0; }
       .carousel-area { margin: 80px 0 24px; gap: 12px; }
-      .tag { min-width: 140px; height: 42px; font-size: 16px; }
-      .c-tag { font-size: 13px; padding: 3px 9px 3px 3px; top: 5px; right: 5px; gap: 5px; }
+      .tag { min-width: 140px; height: 42px; font-size: 17px; }
+      .c-tag { font-size: 14px; padding: 3px 9px 3px 3px; top: 5px; right: 5px; gap: 5px; }
       .c-tag b { width: 19px; height: 19px; font-size: 12px; }
-      .c-body { padding-top: 19cqw; font-size: max(4.3cqw, 12px); }
+      .c-body { padding-top: 19cqw; font-size: max(4.3cqw, 13px); }
       .cascade { aspect-ratio: 1.16; }   /* taller, so the larger labels clear the tile below */
       .readout { font-size: max(8.4cqw, 16px); }
     }
@@ -552,8 +552,11 @@
     @media (max-width: 639px)  { .container { padding: 0 20px; } .headline { font-size: 36px; line-height: 1.09; letter-spacing: -1.3px; } .headline .b { display: inline; } }
 
     @media (max-width: 359px) { .cascade { aspect-ratio: 1; } .c-body { padding-top: 32px; } .readout { margin-top: 2cqw; } }
-    /* Mobile type floor: nothing a visitor reads is under 16px (labels inside the card 3 drawing: 12px) */
-    @media (max-width: 1023px) { .slider-ends, .estimate-note, .est-foot, .field-err { font-size: 16px; } }
+    /* Mobile type floor: nothing a visitor reads is under 17px (labels inside the card 3 drawing: 13px) */
+    @media (max-width: 1023px) {
+      .slider-ends, .estimate-note, .est-foot, .field-err, .form-msg, .field label, .est-small, .est-cap, .enhance-available,
+      .hero-feature, .card-note, .cmp .s, .cmp .p small, .role, .team-row .tag, .t-dark .company, .t-text .position { font-size: 17px; }
+    }
 
     /* ================================================================ SCROLL FADE-IN + SLIDE UP */
     .motion .hero-image, .motion .project-image, .motion .leader-avatar, .motion .benefit-card, .motion .t-card, .motion .footer-logo {
